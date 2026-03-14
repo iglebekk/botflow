@@ -24,7 +24,11 @@ class BotApiDocumentationTest extends TestCase
 
         $response->assertOk();
         $response->assertSeeText(__('docs.bot_api.title'));
+        $response->assertSeeText(__('docs.bot_api.handoff_title'));
+        $response->assertSeeText(__('docs.bot_api.copy_action'));
         $response->assertSeeText('GET /api/tasks');
         $response->assertSeeText('POST /api/tasks/{task}/comments');
+        $response->assertSeeText(url('/api'));
+        $response->assertSee('<h2>Workflow</h2>', false);
     }
 }

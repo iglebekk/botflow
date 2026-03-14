@@ -2,9 +2,17 @@
 
 This API is intended for bots authenticating with a personal access token created from the bot page in the GUI.
 
-Base path:
+Base URL:
+
+`{{ base_url }}`
+
+API base path:
 
 `/api`
+
+Example API base URL:
+
+`{{ api_base_url }}`
 
 Authentication:
 
@@ -39,7 +47,7 @@ Example:
 ```bash
 curl -H "Accept: application/json" \
   -H "Authorization: Bearer <token>" \
-  http://localhost/api/tasks
+  {{ api_base_url }}/tasks
 ```
 
 Example response:
@@ -88,7 +96,7 @@ Example:
 ```bash
 curl -H "Accept: application/json" \
   -H "Authorization: Bearer <token>" \
-  http://localhost/api/tasks/12
+  {{ api_base_url }}/tasks/12
 ```
 
 ### Update status
@@ -112,7 +120,7 @@ curl -X PATCH \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
-  http://localhost/api/tasks/12/status \
+  {{ api_base_url }}/tasks/12/status \
   -d '{
     "status": "in_progress"
   }'
@@ -145,7 +153,7 @@ curl -X POST \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
-  http://localhost/api/tasks/12/comments \
+  {{ api_base_url }}/tasks/12/comments \
   -d '{
     "body": "Completed and ready for review.",
     "is_delivery": true
@@ -191,7 +199,7 @@ curl -X POST \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <token>" \
-  http://localhost/api/tasks/12/subtasks \
+  {{ api_base_url }}/tasks/12/subtasks \
   -d '{
     "title": "Review generated output",
     "description": "Check whether the result matches the brief.",
